@@ -13,6 +13,8 @@ contexts:
   main:
     # Strings begin and end with quotes, and use backslashes as an escape
     # character
+    - match: '@\s*\w+\s*'
+      scope: keyword.control.etch.fetch #annotation.etch.fetch
     - match: '"'
       scope: punctuation.definition.string.begin.etch.fetch
       push: double_quoted_string
@@ -25,7 +27,7 @@ contexts:
     # strings in YAML. When using single quoted strings, only single quotes
     # need to be escaped: this is done by using two single quotes next to each
     # other.
-    - match: '\b(var|if|else|elseif|endif|for|endfor|while|endwhile|function|endfunction)\b'
+    - match: '\b(var|if|else|elseif|endif|for|endfor|while|endwhile|function|endfunction|return|break|continue)\b'
       scope: keyword.control.etch.fetch
     # Numbers
     - match: '\b(-)?[0-9.]+\b'
