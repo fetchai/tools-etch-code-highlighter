@@ -14,7 +14,8 @@ contexts:
     # Strings begin and end with quotes, and use backslashes as an escape
     # character
     - match: '@\s*\w+\s*'
-      scope: keyword.control.etch.fetch #annotation.etch.fetch
+      scope: entity.other.attribute-name.etch.fetch #annotation.etch.fetch
+#
     - match: '"'
       scope: punctuation.definition.string.begin.etch.fetch
       push: double_quoted_string
@@ -27,11 +28,39 @@ contexts:
     # strings in YAML. When using single quoted strings, only single quotes
     # need to be escaped: this is done by using two single quotes next to each
     # other.
-    - match: '\b(var|if|else|elseif|endif|for|endfor|while|endwhile|function|endfunction|return|break|continue)\b'
+    - match: "(function)\\s+(\\w+)"
+      captures:
+        1: keyword.control.etch.fetch
+        2: entity.name.function.etch.fetch
+
+    - match: "(:)\\s*(\\w+)\\s*(<)"
+      captures:
+        1: punctuation.definition.keyword.etch.fetch
+        2: entity.name.type.etch.fetch
+        3: punctuation.definition.keyword.etch.fetch
+      push: templated_type
+
+    - match: "(:)\\s*(\\w+)"
+      captures:
+        1: punctuation.definition.keyword.etch.fetch
+        2: entity.name.type.etch.fetch
+
+    - match: '\b(endfunction)\b'
+      scope: keyword.control.etch.fetch
+    - match: '\b(true|false|null)\b'
+      scope: constant.language.etch.fetch
+    - match: '\b(var|if|else|elseif|endif|for|endfor|while|endwhile|return|break|continue)\b'
       scope: keyword.control.etch.fetch
     # Numbers
     - match: '\b(-)?[0-9.]+\b'
       scope: constant.numeric.etch.fetch
+    - match: '(\+|\-|\*|/)'
+      scope: keyword.operator.arithmetic.etch.fetch
+    - match: '='
+      scope: keyword.operator.assignment.etch.fetch
+    - match: '(\||~|\^|&)'
+      scope: keyword.operator.bitwise.etch.fetch
+      ## TODO: Add more
   double_quoted_string:
     - meta_scope: string.quoted.double.etch.fetch
     - match: '\\.'
@@ -42,4 +71,22 @@ contexts:
   line_comment:
     - meta_scope: comment.line.etch.fetch
     - match: $
+      pop: true
+
+  templated_type:
+    - match: "\\s*(\\w+)\\s*(<)"
+      captures:
+        1: punctuation.definition.keyword.etch.fetch
+        2: entity.name.type.etch.fetch
+        3: punctuation.definition.keyword.etch.fetch
+      push: templated_type
+    - match: "\\s*(\\w+)\\s*"
+      captures:
+        1: entity.name.type.etch.fetch
+    - match: "(>)"
+      captures:
+        1: punctuation.definition.keyword.etch.fetch
+      pop: true
+    - match: '.'
+      scope: invalid.illegal
       pop: true
