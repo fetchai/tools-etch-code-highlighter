@@ -19,3 +19,16 @@ cp subblime/etch.sublime-syntax ~/Library/Application\ Support/Sublime\ Text\ 3/
 ```
 cp subblime/etch.sublime-syntax ~/.config/sublime-text-3/Packages/User/
 ```
+
+Emacs
+-----
+Yet to be written.
+
+Vi/ViM
+------
+Yet to be written.
+
+Eclipse
+-------
+Yet to be written.
+
