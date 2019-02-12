@@ -20,6 +20,11 @@ contexts:
       scope: punctuation.definition.string.begin.etch.fetch
       push: double_quoted_string
     # Comments begin with a '//' and finish at the end of the line
+
+    - match: '/\*'
+      scope: punctuation.definition.comment.etch.fetch
+      push: multi_line_comment
+
     - match: '//'
       scope: punctuation.definition.comment.etch.fetch
       push: line_comment
@@ -71,6 +76,11 @@ contexts:
   line_comment:
     - meta_scope: comment.line.etch.fetch
     - match: $
+      pop: true
+
+  multi_line_comment:
+    - meta_scope: comment.line.etch.fetch
+    - match: '\*/'
       pop: true
 
   templated_type:
