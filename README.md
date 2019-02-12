@@ -8,12 +8,10 @@ Sublime 3
 The repository has plugin for Subblime Text 3. Below we give the installation instructions:
 
 
-**Mac OS X**
-On OS X, copy the file into Sublimes application support directory under `Packages/User/`:
+**Mac OS X** - On OS X, copy the file into Sublimes application support directory under `Packages/User/`:
 
 ```
 cp subblime/etch.sublime-syntax ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 ```
 
-**Linux**
-Instructions to follow.
+**Linux** - Instructions to follow.
