@@ -20,6 +20,23 @@ cp subblime/etch.sublime-syntax ~/Library/Application\ Support/Sublime\ Text\ 3/
 cp subblime/etch.sublime-syntax ~/.config/sublime-text-3/Packages/User/
 ```
 
+Clion
+---------
+The repository has settings for CLion. The clion custom file types settings is limited since it does not 
+permit regular expressions for specifying keywords. Therefore this highlighter has fewer features than
+the sublime highlighter.
+
+Below we give the installation instructions:
+
+Select: File - Import settings, and browse to the file located at
+
+```
+clion/etch_file_type.zip
+
+```
+and import the file-types settings.
+
+
 Emacs
 -----
 Yet to be written.
