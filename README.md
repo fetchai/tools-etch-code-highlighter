@@ -43,7 +43,10 @@ Yet to be written.
 
 Vi/ViM
 ------
-Yet to be written.
+Move the files as follows:
+
+~/.vim/filetype.vim
+~/.vim/syntax/etch.vim
 
 Eclipse
 -------
