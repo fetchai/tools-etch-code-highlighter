@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Fetch.AI VM language highlighter</title>
+  <script src="./prism.js"></script>
+  <link rel="stylesheet" href="./prism.css" />
+  <style>
+    .token.annotation {
+      color: #00FF00;
+    }  
+
+    .token.primitive-type {
+      color: #ddddFF;
+    }      
+  </style>
+  <script>
+    Prism.languages.fetch = {
+  'comment': [
+    {
+      pattern: /(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,
+      lookbehind: true
+    },
+    {
+      pattern: /(^|[^\\:])\/\/.*/,
+      lookbehind: true,
+      greedy: true
+    }
+  ],
+  'string': {
+    pattern: /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
+    greedy: true
+  },
+  'annotation': {
+    pattern: /@\w+/
+  },  
+  /*
+  'class-name': {
+    pattern: /((?:\b(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[\w.\\]+/i,
+    lookbehind: true,
+    inside: {
+      punctuation: /[.\\]/
+    }
+  },
+  */
+  'primitive-type': /\b(?:Uint8|Int8|Int32|Int64|UInt32|UInt64)\b/,  
+  'keyword': /\b(?:if|else|endif|while|endwhile|for|endfor|break|continue|return|in|function|endfunction|var)\b/,
+  'boolean': /\b(?:true|false)\b/,
+  'function': /\w+(?=\()/,
+  'number': /\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?/i,
+  'operator': /-|\+|!=?|<=?|>=?|==?|&&?|&|\||\|\|?|\?|\*|\/|~|\^|%/,
+  'punctuation': /[{}[\];(),.:]/
+};
+  </script>
+</head>
+<body>
+
+<pre>
+    <code  class="line-numbers language-fetch">
+      @contract
+      function foo()
+        var q : Int32 = 2;
+
+        for(i in 0:20)
+          q = q + q * i;
+        endfor
+      endfunction
+    </code>
+</pre>
+
+<script>
+
+</script>
+</body>
+</html>
