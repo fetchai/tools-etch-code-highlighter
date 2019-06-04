@@ -10,13 +10,13 @@ The repository has plugin for Sublime Text 3. Below we give the installation ins
 **Mac OS X** - On OS X, copy the file into Sublime's application support directory under `Packages/User/`:
 
 ```
-cp subblime/etch.sublime-syntax ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
+cp sublime/etch.sublime-syntax ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 ```
 
 **Linux** - On Linux, the file is added to the Sublime config directory:
 
 ```
-cp subblime/etch.sublime-syntax ~/.config/sublime-text-3/Packages/User/
+cp sublime/etch.sublime-syntax ~/.config/sublime-text-3/Packages/User/
 ```
 
 Clion
