@@ -44,7 +44,7 @@ Vi/ViM
 ------
 Move the files as follows:
 
-~/.vim/filetype.vim
+~/.vim/ftdetect/etch.vim
 ~/.vim/syntax/etch.vim
 
 Eclipse
